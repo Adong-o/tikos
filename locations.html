@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Locations - Tiko's Pizza</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .locations-header {
+            height: 400px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 5rem 0;
+        }
+
+        .location-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .location-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .location-card:hover .location-image img {
+            transform: scale(1.1);
+        }
+
+        .location-info {
+            padding: 2rem;
+        }
+
+        .location-info h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .location-details {
+            margin-top: 1.5rem;
+        }
+
+        .location-detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .location-detail i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .delivery-section {
+            padding: 5rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1920&q=80') center/cover fixed no-repeat;
+            color: white;
+            text-align: center;
+        }
+
+        .delivery-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .delivery-zones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .zone-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .zone-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .zone-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .locations-header {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Bar -->
+    <div class="loading-bar" id="loadingBar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">Tiko's Pizza</a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/menu.html">Menu</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/locations.html" class="active">Locations</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li>
+                    <a href="#" class="cart-icon" id="cartButton">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Locations Header -->
+    <header class="locations-header">
+        <div class="container">
+            <h1 class="text-glow">Our Locations</h1>
+            <p>Find your nearest Tiko's Pizza</p>
+        </div>
+    </header>
+
+    <!-- Locations Grid -->
+    <section class="container">
+        <div class="locations-grid">
+            <div class="location-card">
+                <div class="location-image">
+                    <img src="https://images.unsplash.com/photo-1577208288347-b24488f3efa5?auto=format&fit=crop&w=800&q=80" alt="Westlands Branch">
+                </div>
+                <div class="location-info">
+                    <h3>Westlands Branch</h3>
+                    <div class="location-details">
+                        <div class="location-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>123 Westlands Road, Nairobi</p>
+                        </div>
+                        <div class="location-detail">
+                            <i class="fas fa-phone"></i>
+                            <p>+254 700 123 456</p>
+                        </div>
+                        <div class="location-detail">
+                            <i class="fas fa-clock"></i>
+                            <p>10:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <div class="location-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Kitengela Branch">
+                </div>
+                <div class="location-info">
+                    <h3>Kitengela Branch</h3>
+                    <div class="location-details">
+                        <div class="location-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>EPZ Plaza, Kitengela</p>
+                        </div>
+                        <div class="location-detail">
+                            <i class="fas fa-phone"></i>
+                            <p>+254 700 789 012</p>
+                        </div>
+                        <div class="location-detail">
+                            <i class="fas fa-clock"></i>
+                            <p>10:00 AM - 9:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <div class="location-image">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Nakuru Branch">
+                </div>
+                <div class="location-info">
+                    <h3>Nakuru Branch</h3>
+                    <div class="location-details">
+                        <div class="location-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Westside Mall, Nakuru</p>
+                        </div>
+                        <div class="location-detail">
+                            <i class="fas fa-phone"></i>
+                            <p>+254 700 345 678</p>
+                        </div>
+                        <div class="location-detail">
+                            <i class="fas fa-clock"></i>
+                            <p>10:00 AM - 9:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Section -->
+    <section class="delivery-section">
+        <div class="container">
+            <div class="delivery-content">
+                <h2>Delivery Zones</h2>
+                <p>We deliver to the following areas with estimated delivery times</p>
+                <div class="delivery-zones">
+                    <div class="zone-card">
+                        <h4>Zone A</h4>
+                        <p>20-30 minutes</p>
+                        <p>Westlands, Parklands, Highridge</p>
+                    </div>
+                    <div class="zone-card">
+                        <h4>Zone B</h4>
+                        <p>30-45 minutes</p>
+                        <p>Kitengela Town, EPZ Area</p>
+                    </div>
+                    <div class="zone-card">
+                        <h4>Zone C</h4>
+                        <p>30-45 minutes</p>
+                        <p>Nakuru CBD, Milimani</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">Ksh. 0.00</span>
+            </div>
+            <button class="btn btn-primary" id="checkoutButton">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Phone: +254 700 123 456</p>
+                    <p>Email: info@tikospizza.co.ke</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Locations</h4>
+                    <p>Nairobi - Westlands</p>
+                    <p>Kitengela - EPZ</p>
+                    <p>Nakuru - Westside</p>
+                    <p>Machakos Mall</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tiko's Pizza. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

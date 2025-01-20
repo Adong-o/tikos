@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Tiko's Pizza</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .menu-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('images/menu-bg.jpg') center/cover no-repeat;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .menu-filters {
+            background: var(--light-gray);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            background: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Bar -->
+    <div class="loading-bar" id="loadingBar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">Tiko's Pizza</a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/menu.html" class="active">Menu</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/locations.html">Locations</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li>
+                    <a href="#" class="cart-icon" id="cartButton">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Menu Header -->
+    <header class="menu-header">
+        <div class="container">
+            <h1 class="text-glow">Our Menu</h1>
+            <p>Discover our delicious selection of pizzas</p>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search pizzas..." id="searchInput">
+    </div>
+
+    <!-- Menu Filters -->
+    <section class="menu-filters">
+        <div class="container">
+            <div class="filter-container">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="vegetarian">Vegetarian</button>
+                <button class="filter-btn" data-category="meat">Meat Lovers</button>
+                <button class="filter-btn" data-category="specialty">Specialty</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Grid -->
+    <section class="container">
+        <div class="menu-grid" id="menuGrid">
+            <!-- Menu items will be added dynamically -->
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">Ksh. 0.00</span>
+            </div>
+            <button class="btn btn-primary" id="checkoutButton">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Phone: +254 700 123 456</p>
+                    <p>Email: info@tikospizza.co.ke</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Locations</h4>
+                    <p>Nairobi - Westlands</p>
+                    <p>Kitengela - EPZ</p>
+                    <p>Nakuru - Westside</p>
+                    <p>Machakos Mall</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tiko's Pizza. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="js/menu.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

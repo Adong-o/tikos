@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiko's Pizza - Best Pizza in Kenya</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Bar -->
+    <div class="loading-bar" id="loadingBar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">Tiko's Pizza</a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/menu.html">Menu</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/locations.html">Locations</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li>
+                    <a href="#" class="cart-icon" id="cartButton">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero parallax-section">
+        <div class="hero-content">
+            <h1 class="text-glow">Delicious Pizza, <br>Delivered Fast</h1>
+            <p>Experience the best pizza in Kenya, made with fresh ingredients and love</p>
+            <div class="hero-buttons">
+                <a href="/menu.html" class="btn btn-primary hover-lift">Order Now</a>
+                <a href="/locations.html" class="btn btn-secondary hover-lift">Find Location</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Why Choose Tiko's Pizza?</h2>
+            <div class="features-grid">
+                <div class="feature-card card-hover">
+                    <i class="fas fa-pizza-slice"></i>
+                    <h3>Fresh Ingredients</h3>
+                    <p>We use only the freshest ingredients for our pizzas</p>
+                </div>
+                <div class="feature-card card-hover">
+                    <i class="fas fa-truck"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick delivery to your doorstep</p>
+                </div>
+                <div class="feature-card card-hover">
+                    <i class="fas fa-star"></i>
+                    <h3>Best Quality</h3>
+                    <p>Consistently high quality pizzas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Pizzas Section -->
+    <section class="popular-pizzas">
+        <div class="container">
+            <h2>Our Popular Pizzas</h2>
+            <div class="pizza-grid" id="popularPizzas">
+                <!-- Pizza cards will be added dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">Ksh. 0.00</span>
+            </div>
+            <button class="btn btn-primary" id="checkoutButton">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Phone: +254 700 123 456</p>
+                    <p>Email: info@tikospizza.co.ke</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Locations</h4>
+                    <p>Nairobi - Westlands</p>
+                    <p>Kitengela - EPZ</p>
+                    <p>Nakuru - Westside</p>
+                    <p>Machakos Mall</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tiko's Pizza. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart-customization.js"></script>
+    <script src="js/welcome-animation.js"></script>
+    <script src="js/fun-features.js"></script>
+</body>
+</html>
