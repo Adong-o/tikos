@@ -5,7 +5,7 @@ const menuItems = [
         name: "Classic Margherita",
         description: "Fresh tomatoes, mozzarella, basil, and olive oil",
         price: 1200,
-        image: "images/pizzas/margherita.jpg",
+        image: "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=600&auto=format&fit=crop",
         category: "vegetarian"
     },
     {
@@ -13,7 +13,7 @@ const menuItems = [
         name: "Pepperoni Supreme",
         description: "Loaded with pepperoni, mozzarella, and special sauce",
         price: 1400,
-        image: "images/pizzas/pepperoni.jpg",
+        image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=600&auto=format&fit=crop",
         category: "meat"
     },
     {
@@ -21,7 +21,7 @@ const menuItems = [
         name: "Meat Lovers",
         description: "Pepperoni, sausage, bacon, ground beef, and ham",
         price: 1700,
-        image: "images/pizzas/meat-lovers.jpg",
+        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&auto=format&fit=crop",
         category: "meat"
     },
     {
@@ -29,7 +29,7 @@ const menuItems = [
         name: "BBQ Chicken",
         description: "Grilled chicken, BBQ sauce, onions, and cilantro",
         price: 1500,
-        image: "images/pizzas/bbq-chicken.jpg",
+        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&auto=format&fit=crop",
         category: "specialty"
     },
     {
@@ -37,7 +37,7 @@ const menuItems = [
         name: "Vegetarian Supreme",
         description: "Mushrooms, bell peppers, onions, olives, and tomatoes",
         price: 1300,
-        image: "images/pizzas/vegetarian.jpg",
+        image: "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=600&auto=format&fit=crop",
         category: "vegetarian"
     },
     {
@@ -45,7 +45,7 @@ const menuItems = [
         name: "Hawaiian",
         description: "Ham, pineapple, and extra cheese",
         price: 1400,
-        image: "images/pizzas/hawaiian.jpg",
+        image: "https://images.unsplash.com/photo-1594007654729-407eedc4be65?w=600&auto=format&fit=crop",
         category: "specialty"
     }
 ];
@@ -55,8 +55,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuGrid = document.getElementById('menuGrid');
     const searchInput = document.getElementById('searchInput');
     const filterButtons = document.querySelectorAll('.filter-btn');
+    const loadingBar = document.getElementById('loadingBar');
     let currentFilter = 'all';
     let searchQuery = '';
+
+    // Hide loading bar
+    if (loadingBar) {
+        loadingBar.style.display = 'none';
+    }
 
     // Display menu items
     function displayMenuItems(items) {
@@ -74,7 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         menuGrid.innerHTML = items.map(item => `
             <div class="pizza-card card-hover">
-                <img src="${item.image}" alt="${item.name}" onerror="this.src='images/pizza-placeholder.jpg'">
+                <img src="${item.image}" alt="${item.name}" 
+                     onerror="this.src='./images/pizza-placeholder.jpg'"
+                     loading="lazy">
                 <div class="pizza-card-content">
                     <h3>${item.name}</h3>
                     <p>${item.description}</p>
