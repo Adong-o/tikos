@@ -8,7 +8,6 @@ A modern, responsive pizza ordering website built with HTML, CSS, and JavaScript
 
 - 🎨 Modern and responsive design
 - 🛒 Interactive shopping cart
-- 🔍 Search and filter pizzas by category
 - ⭐ Rating system with visual feedback
 - 📱 Mobile-friendly interface
 - 🌟 Beautiful animations and transitions
